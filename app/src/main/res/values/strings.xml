@@ -1,0 +1,16 @@
+<resources>
+
+    <string name="app_name">Foursquare-Recommendations</string>
+
+    <string name="permission_notice">앱을 사용하려면 위치 정보가 필요합니다.\n위치 정보 접근을 허용해주세요.</string>
+    <string name="permission_setting"><u>위치 정보 설정</u></string>
+
+    <string name="list_toolbar_title">Foursquare 추천 목록</string>
+    <string name="list_empty_message">표시할 정보가 없습니다.\n다시 시도해주세요.</string>
+
+    <string name="item_title_address">주소</string>
+    <string name="item_title_category">카테고리</string>
+
+    <string name="menu_sort_by_distance">거리순</string>
+    <string name="menu_sort_by_relevance">관련도순</string>
+</resources>
