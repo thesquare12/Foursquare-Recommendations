@@ -2,6 +2,7 @@ package com.song.app.test.foursquare
 
 import android.os.Bundle
 import android.view.*
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -30,6 +31,9 @@ class VenueListFragment : Fragment() {
         })
         viewModel.isLoading.observe(this, Observer {
             binding.layoutSwipeRefresh.isRefreshing = it
+        })
+        viewModel.errorEvent.observe(this, Observer {
+            Toast.makeText(context, it, Toast.LENGTH_SHORT).show()
         })
     }
 

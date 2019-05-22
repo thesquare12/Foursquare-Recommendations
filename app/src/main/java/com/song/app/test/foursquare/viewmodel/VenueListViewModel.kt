@@ -10,13 +10,14 @@ import com.song.app.test.foursquare.api.FoursquareApi
 import com.song.app.test.foursquare.model.recommendation.GroupItem
 import com.song.app.test.foursquare.model.recommendation.RecommendationResult
 import com.song.app.test.foursquare.util.LocationHelper
+import com.song.app.test.foursquare.util.SingleLiveEvent
 
 class VenueListViewModel(application: Application) : AndroidViewModel(application) {
 
     private val mutableList = MutableLiveData<List<GroupItem>>()
     val list: LiveData<List<GroupItem>> get() = mutableList
-
     val isLoading: MutableLiveData<Boolean> = MutableLiveData()
+    val errorEvent = SingleLiveEvent<String>()
 
     var sortByDistance = true
         set(value) {
@@ -42,6 +43,7 @@ class VenueListViewModel(application: Application) : AndroidViewModel(applicatio
 
             override fun onFailure(t: Throwable) {
                 isLoading.postValue(false)
+                errorEvent.value = "잠시 후 다시 시도해주세요."
             }
         }, section, sortByDistance, location, limit)
     }
